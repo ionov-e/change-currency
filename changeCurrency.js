@@ -22,7 +22,7 @@ function changeCurrencyFinal(dollarPricesDivs) {
             let textWithoutSpaces = textFromDiv.replace(/\s/g, '');
             let numberFromDiv = Number(textWithoutSpaces);
             let newValue = (numberFromDiv * rateDol * 1.1).toFixed(); // К курсу еще накинуто
-            dollarPricesDivs[i].innerText = newValue.replace(/(.{3})/g,"$1 ");
+            dollarPricesDivs[i].innerText = newValue.replace(/(?!^)(?=(?:\d{3})+(?:\.|$))/gm, ' ');
         }
     });
 }
